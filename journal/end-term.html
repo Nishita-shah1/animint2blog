@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Feature blog, Codecov review, and NEWS.md – Nishita / GSoC 2026</title>
+  <meta name="description" content="Feature blog, Codecov review, and NEWS.md">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="week-page" data-page="journal-end-term" data-root="..">
+
+  <div class="week-nav-shell" data-week-nav></div>
+
+  <div class="page-shell">
+    <main class="content">
+
+      <header class="week-header">
+        <div class="week-badge">End term</div>
+        <h1 class="week-title">Feature blog, Codecov review, and NEWS.md</h1>
+        <p class="week-date">2026-08-24 – 2026-09-07</p>
+      </header>
+
+      <h2 id="outcome">Outcome</h2>
+      <p>End term split across a user-facing blog and the remaining infrastructure PRs. <a href="https://github.com/animint/animint-blog/pull/2">animint-blog#2</a> explains how to draw polygon holes and why they matter for hover and click. <a href="https://github.com/animint/animint2/pull/344">PR #344</a> absorbed Gaurav’s review and a CRAN NEWS note.</p>
+
+      <h2 id="context">Context</h2>
+      <p>Toby wanted the blog focused on using holes, with some historical context (the 2018 fork versus ggplot2 3.2.0 <code>subgroup</code>), not a changelog of tests. Gaurav’s #344 review asked for covr Rlang JSON handling, PDF tests on the CRAN job, restoring the JS coverage download, and loading animint2 before the CRAN PDF renderer test. He said the PR looked good on 27 August.</p>
+
+      <h2 id="what-i-did">What I did</h2>
+      <ul>
+        <li>24–31 August: opened the blog PR; applied Gaurav’s CI comments on #344.</li>
+        <li>1–7 September: rewrote the post around usage and interaction; fixed a <code>data.table</code> parse error and a discrete-scale error by making <code>num</code> a factor and setting <code>scale_fill_manual(values=...)</code>.</li>
+        <li>Resolved #344 merge conflicts, then fixed <code>NEWS.md</code> so CRAN could parse <code>Changes in development (PR#339)</code>.</li>
+        <li>Asked Toby to review #344 again.</li>
+      </ul>
+
+      <h2 id="learnings">Learnings</h2>
+      <p>A package blog is a vignette in public: the examples have to knit in CI. CRAN NEWS section titles are a real check, not decoration.</p>
+
+      <h2 id="next">Next week targets</h2>
+      <p>Merge #344 after Toby’s pass. On #342, keep atime showing a HEAD speedup, finish the vignette hosting link, and get the grouping-scan C++ through final review.</p>
+
+      <h2 id="evidence">Evidence and links</h2>
+      <ul class="evidence-list">
+        <li><a href="https://github.com/animint/animint-blog/pull/2">animint-blog#2: polygon holes post</a></li>
+        <li><a href="https://github.com/animint/animint2/pull/344">PR #344</a></li>
+        <li><a href="https://github.com/animint/animint2/pull/342">PR #342</a></li>
+        <li><a href="https://github.com/animint/animint2/issues/322">Issue #322: source updates</a></li>
+      </ul>
+
+    </main>
+    <aside class="page-toc" data-page-toc></aside>
+  </div>
+
+  <script src="../js/site.js"></script>
+</body>
+</html>

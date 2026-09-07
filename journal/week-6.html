@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A reviewable C++ fast path for getCommonChunk() – Nishita / GSoC 2026</title>
+  <meta name="description" content="A reviewable C++ fast path for getCommonChunk()">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="week-page" data-page="journal-week-6" data-root="..">
+
+  <div class="week-nav-shell" data-week-nav></div>
+
+  <div class="page-shell">
+    <main class="content">
+
+      <header class="week-header">
+        <div class="week-badge">Week 6</div>
+        <h1 class="week-title">A reviewable C++ fast path for getCommonChunk()</h1>
+        <p class="week-date">2026-06-29 – 2026-07-05</p>
+      </header>
+
+      <h2 id="outcome">Outcome</h2>
+      <p>On 29 June I opened <a href="https://github.com/animint/animint2/pull/342">PR #342</a> for issue #258. The first C++ was too large. After Toby asked for something closer to 100 lines, I kept grouping in R and moved only the inner compare to <code>common_value_for_group_subset_cpp()</code> (~154 lines).</p>
+
+      <h2 id="context">Context</h2>
+      <p><code>getCommonChunk()</code> splits compiled plot data so the browser only downloads values that change with a selector. After earlier correctness work, the remaining cost was the inner “is this column constant across chunks?” loop, including NA handling.</p>
+
+      <h2 id="what-i-did">What I did</h2>
+      <ul>
+        <li>Wired Rcpp exports, an <code>options(animint2.use.cpp)</code> R fallback, and 11 unit tests (38 expectations passing).</li>
+        <li>Moved the markdown explanation into <code>vignettes/get-common-chunk-cpp.Rmd</code>.</li>
+        <li>Diagnosed CRAN / coverage CI: committed <code>src/get_common_chunk.o</code>, knitted HTML instead of the <code>.Rmd</code>, and <code>useDynLib</code> being stripped by <code>devtools::document()</code> in the CRAN script.</li>
+        <li>Added <code>R/rcpp-dynlib.R</code>, gitignored build artifacts, and stripped the vignette from the CRAN tarball in <code>build.sh</code>.</li>
+      </ul>
+
+      <h2 id="learnings">Learnings</h2>
+      <p>CRAN CI is a packaging problem as much as a code problem. Object files, knitted vignettes, and NAMESPACE generation can fail a check even when tests pass locally on Windows with Rtools.</p>
+
+      <h2 id="next">Next week targets</h2>
+      <p>Ask for review on both #328 and #342 before midterm.</p>
+
+      <h2 id="evidence">Evidence and links</h2>
+      <ul class="evidence-list">
+        <li><a href="https://github.com/animint/animint2/pull/342">PR #342</a></li>
+        <li><a href="https://github.com/animint/animint2/issues/258">Issue #258</a></li>
+      </ul>
+
+    </main>
+    <aside class="page-toc" data-page-toc></aside>
+  </div>
+
+  <script src="../js/site.js"></script>
+</body>
+</html>

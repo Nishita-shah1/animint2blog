@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Move the grouping loop to C++; fix Codecov uploads – Nishita / GSoC 2026</title>
+  <meta name="description" content="Move the grouping loop to C++; fix Codecov uploads">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="week-page" data-page="journal-week-12" data-root="..">
+
+  <div class="week-nav-shell" data-week-nav></div>
+
+  <div class="page-shell">
+    <main class="content">
+
+      <header class="week-header">
+        <div class="week-badge">Week 12</div>
+        <h1 class="week-title">Move the grouping loop to C++; fix Codecov uploads</h1>
+        <p class="week-date">2026-08-10 – 2026-08-16</p>
+      </header>
+
+      <h2 id="outcome">Outcome</h2>
+      <p>Suhaani’s review on 10 August was the important one: tests passed, but atime Fast/Slow overlapped (p≈0.84) because the <code>by=</code> grouping loop was still in R. Issue #258 had called out that loop as the slow part.</p>
+      <p>I moved the column/group scan to C++ as <code>detect_common_value_dt_cpp</code> and fixed the atime workload so it actually builds a common chunk. HEAD became much faster (about 65× on the predicted N, p=0). Locally, 20k rows / 5k groups went from ~23s in R to ~0.5s in C++.</p>
+
+      <h2 id="context">Context</h2>
+      <p>The earlier ~154-line design was easier to review but did not hit the bottleneck. I also started <a href="https://github.com/animint/animint2/issues/254">issue #254</a>: Codecov <code>project</code> dropped on doc-only commits because R and JS uploaded separately. A failed JS job became the baseline.</p>
+
+      <h2 id="what-i-did">What I did</h2>
+      <ul>
+        <li>Implemented <code>detect_common_value_dt_cpp</code> and merged master (DESCRIPTION version conflict).</li>
+        <li>Opened <a href="https://github.com/animint/animint2/pull/344">PR #344</a>: save both coverage reports as artifacts and upload them together only after both jobs succeed; skip PDF <code>knit_print</code> tests when <code>pdflatex</code> is missing so coverage jobs need no texlive.</li>
+      </ul>
+
+      <h2 id="learnings">Learnings</h2>
+      <p>A benchmark that returns early with no common chunk will never show a speedup. The atime SHA labeled Fast also has to be the implementation you claim is fast.</p>
+
+      <h2 id="next">Next week targets</h2>
+      <p>Explain the Fast vs Slow vs HEAD atime curves, and keep #328 moving toward merge.</p>
+
+      <h2 id="evidence">Evidence and links</h2>
+      <ul class="evidence-list">
+        <li><a href="https://github.com/animint/animint2/pull/342">PR #342</a></li>
+        <li><a href="https://github.com/animint/animint2/pull/344">PR #344</a></li>
+        <li><a href="https://github.com/animint/animint2/issues/254">Issue #254</a></li>
+      </ul>
+
+    </main>
+    <aside class="page-toc" data-page-toc></aside>
+  </div>
+
+  <script src="../js/site.js"></script>
+</body>
+</html>

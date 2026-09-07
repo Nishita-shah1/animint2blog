@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conflicts on holes; status write-up on C++ – Nishita / GSoC 2026</title>
+  <meta name="description" content="Conflicts on holes; status write-up on C++">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="week-page" data-page="journal-week-10" data-root="..">
+
+  <div class="week-nav-shell" data-week-nav></div>
+
+  <div class="page-shell">
+    <main class="content">
+
+      <header class="week-header">
+        <div class="week-badge">Week 10</div>
+        <h1 class="week-title">Conflicts on holes; status write-up on C++</h1>
+        <p class="week-date">2026-07-27 – 2026-08-02</p>
+      </header>
+
+      <h2 id="outcome">Outcome</h2>
+      <p>Two long-running PRs both moved. Polygon holes needed a rebase; the C++ PR needed a clear status for mentors who had not looked in a few weeks.</p>
+
+      <h2 id="context">Context</h2>
+      <p>On 29 July Toby asked what the status of #342 was, and separately asked me to fix conflicts on #328. atime on #342 already showed HEAD faster for the getCommonChunk workload in the CML plot.</p>
+
+      <h2 id="what-i-did">What I did</h2>
+      <ul>
+        <li>31 July: resolved merge conflicts and test failures on PR #328. Left atime and Codecov alone on that branch.</li>
+        <li>2 August: wrote a status comment on #342: simplified C++, unit tests passing, Yufan’s comments addressed, atime #258 test up.</li>
+      </ul>
+
+      <h2 id="learnings">Learnings</h2>
+      <p>A PR that sits through midterm needs a periodic “here is what is true today” comment. Mentors should not have to reconstruct status from commits.</p>
+
+      <h2 id="next">Next week targets</h2>
+      <p>Wait on review, and ping all three mentors if #342 is still untouched.</p>
+
+      <h2 id="evidence">Evidence and links</h2>
+      <ul class="evidence-list">
+        <li><a href="https://github.com/animint/animint2/pull/328">PR #328</a></li>
+        <li><a href="https://github.com/animint/animint2/pull/342">PR #342</a></li>
+      </ul>
+
+    </main>
+    <aside class="page-toc" data-page-toc></aside>
+  </div>
+
+  <script src="../js/site.js"></script>
+</body>
+</html>

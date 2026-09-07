@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Polygon holes, origin branches, and the first CI lessons – Nishita / GSoC 2026</title>
+  <meta name="description" content="Polygon holes, origin branches, and the first CI lessons">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="week-page" data-page="journal-community-bonding" data-root="..">
+
+  <div class="week-nav-shell" data-week-nav></div>
+
+  <div class="page-shell">
+    <main class="content">
+
+      <header class="week-header">
+        <div class="week-badge">Community bonding</div>
+        <h1 class="week-title">Polygon holes, origin branches, and the first CI lessons</h1>
+        <p class="week-date">2026-05-01 – 2026-05-24</p>
+      </header>
+
+      <h2 id="outcome">Outcome</h2>
+      <p>Community bonding started with work I had already opened in April: support for the <code>subgroup</code> aesthetic in <code>geom_polygon()</code> so polygons with holes render correctly. That matters for isoband contour polygons used in Hi-C genomic visualizations.</p>
+      <p>The first implementation spanned three layers: the R compiler (<code>geom-polygon.r</code>, <code>geom-.r</code>) and the JS renderer (<code>animint.js</code>), using GeoJSON Polygon format with <code>fill-rule: evenodd</code> for transparent holes. I wrote 17 tests covering compiler, renderer, and interactive cases.</p>
+
+      <h2 id="context">Context</h2>
+      <p>On 7 May I opened <a href="https://github.com/animint/animint2/issues/322">issue #322</a> as my public GSoC log. Toby invited me to the animint developers team and asked that future PRs come from branches in the org, not my fork. He also pointed me at <a href="https://github.com/animint/animint-blog/">animint-blog</a> for write-ups.</p>
+
+      <h2 id="what-i-did">What I did</h2>
+      <ul>
+        <li>11 May: first meeting with mentors and other contributors about issue #252.</li>
+        <li>15–17 May: rewrote JavaScript from built-in array methods and <code>forEach</code> loops to <code>d3.nest</code>, matching the rest of animint, and documented the approach.</li>
+        <li>18–19 May: all three CI checks failed on PR #320 because the PR came from my fork. GitHub blocks repository secrets on fork PRs, so <code>PAT_GITHUB</code> arrived empty and <code>animint2pages</code> tests could not authenticate.</li>
+        <li>Pushed the branch to <code>animint/animint2</code> and opened <a href="https://github.com/animint/animint2/pull/326">PR #326</a>. CRAN and R_coverage passed; JS_coverage still failed.</li>
+        <li>20 May: closed #320 in favor of #326 and updated the polygon-hole test suite.</li>
+        <li>23–24 May: studied Toby’s draft <a href="https://github.com/animint/animint2/pull/328">PR #328</a>, a stronger failing test for holes, and adopted a test-first workflow.</li>
+      </ul>
+
+      <h2 id="learnings">Learnings</h2>
+      <p>Fork PRs and org-branch PRs are not the same CI environment. Secrets, GitHub Pages helpers, and coverage jobs only work when the branch lives in the origin repository. I also learned that “no display on CI” was the wrong diagnosis: both coverage jobs already use chromote, and some failures are flaky enough to retry.</p>
+
+      <h2 id="challenges">Challenges / notes</h2>
+      <p>JS_coverage still failed after the secrets fix with Chromote / X server warnings. Renderer tests that open a browser are more thorough than compiler-only tests, but they are also more sensitive to CI setup. I waited for mentor guidance before changing <code>tests.yaml</code>.</p>
+
+      <h2 id="next">Next week targets</h2>
+      <p>Port the rendering fix from PR #326 onto the <code>test-polygon-hole</code> branch so the stronger tests in PR #328 pass, then close #326.</p>
+
+      <h2 id="evidence">Evidence and links</h2>
+      <ul class="evidence-list">
+        <li><a href="https://github.com/animint/animint2/issues/322">Issue #322: GSoC updates</a></li>
+        <li><a href="https://github.com/animint/animint2/issues/252">Issue #252: polygon holes</a></li>
+        <li><a href="https://github.com/animint/animint2/pull/326">PR #326: origin-branch polygon holes</a></li>
+        <li><a href="https://github.com/animint/animint2/pull/328">PR #328: stronger hole tests</a></li>
+      </ul>
+
+    </main>
+    <aside class="page-toc" data-page-toc></aside>
+  </div>
+
+  <script src="../js/site.js"></script>
+</body>
+</html>

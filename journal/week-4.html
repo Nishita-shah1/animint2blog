@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>d3.geo.path, coverage, and flaky tooltips – Nishita / GSoC 2026</title>
+  <meta name="description" content="d3.geo.path, coverage, and flaky tooltips">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="week-page" data-page="journal-week-4" data-root="..">
+
+  <div class="week-nav-shell" data-week-nav></div>
+
+  <div class="page-shell">
+    <main class="content">
+
+      <header class="week-header">
+        <div class="week-badge">Week 4</div>
+        <h1 class="week-title">d3.geo.path, coverage, and flaky tooltips</h1>
+        <p class="week-date">2026-06-15 – 2026-06-21</p>
+      </header>
+
+      <h2 id="outcome">Outcome</h2>
+      <p>Two separate problems showed up on PR #328: Codecov still disliked the new JS, and some tooltip tests passed only some of the time.</p>
+
+      <h2 id="context">Context</h2>
+      <p>On 17 June I computed a planar SVG path string as a fallback, then preferred <code>d3.geo.path</code> when it existed. The idea was to execute both branches so coverage would rise without changing the picture. Toby asked why coverage would change, what a planar SVG path was, and why <code>d3.geo.path</code> would ever be missing. The honest answer was that I did not know how to pass Codecov and was guessing. He told me to ignore Codecov and use <code>d3.geo.path</code>.</p>
+
+      <h2 id="what-i-did">What I did</h2>
+      <ul>
+        <li>Added <code>Sys.sleep(0.3)</code> in <code>helper-function.R</code> because the browser sometimes painted <code>tooltipID</code> after the assertion ran.</li>
+        <li>Dropped the dual-path coverage hack after review.</li>
+        <li>Started rewriting the renderer to <code>d3.geo.path</code> only.</li>
+      </ul>
+
+      <h2 id="learnings">Learnings</h2>
+      <p>Coverage is not a reason to keep dead branches. If d3 is always present in the animint page, the fallback is noise. Flaky interactive tests are often timing, not geometry.</p>
+
+      <h2 id="next">Next week targets</h2>
+      <p>Finish the <code>d3.geo.path</code> implementation, then start issue #258: move <code>getCommonChunk()</code> to C++.</p>
+
+      <h2 id="evidence">Evidence and links</h2>
+      <ul class="evidence-list">
+        <li><a href="https://github.com/animint/animint2/pull/328">PR #328</a></li>
+        <li><a href="https://github.com/animint/animint2/issues/258">Issue #258: getCommonChunk C++</a></li>
+      </ul>
+
+    </main>
+    <aside class="page-toc" data-page-toc></aside>
+  </div>
+
+  <script src="../js/site.js"></script>
+</body>
+</html>

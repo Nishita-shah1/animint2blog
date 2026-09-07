@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GSoC 2026 Animint2 Development Journal – Nishita / GSoC 2026</title>
+  <meta name="description" content="A public engineering journal documenting Nishita Shah's Google Summer of Code 2026 journey with Animint2.">
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body class="home-page" data-page="home" data-root=".">
+
+  <main class="content">
+
+    <div class="journal-hero">
+      <p class="eyebrow">Google Summer of Code 2026</p>
+      <h1>Welcome to my GSoC 2026 Journey</h1>
+      <p>Follow my journey through Google Summer of Code 2026, where I, <strong>Nishita Shah</strong> (GitHub: <strong>Nishita-shah1</strong>), share weekly updates, review cycles, and implementation notes from the Animint2 project. This journal is compiled from my public log on <a href="https://github.com/animint/animint2/issues/322">animint2#322</a>.</p>
+      <div class="hero-actions">
+        <a class="journal-button journal-button-primary" href="./journal/index.html">Open journal</a>
+        <a class="journal-button journal-button-secondary" href="./future.html">For future developers</a>
+      </div>
+    </div>
+
+    <h2>About the project</h2>
+    <div class="editorial-panel">
+      <p>My GSoC project improves Animint2, an R package for animated and interactive data visualizations. I worked on polygon holes in the renderer, a C++ fast path for <code>getCommonChunk()</code>, Codecov CI reliability, tests, and a user-facing blog post. The goal is to make Animint2 faster to compile, correct for hole geometry, and easier to review in CI.</p>
+    </div>
+
+    <h2>Development journey</h2>
+    <div class="week-card-grid">
+        <a href="./journal/week-1.html"><strong>Week 1</strong><br>Test-first polygon-hole branch</a>
+        <a href="./journal/week-2.html"><strong>Week 2</strong><br>Stronger polygon tooltip tests</a>
+        <a href="./journal/week-3.html"><strong>Week 3</strong><br>Review cycles on PR #328</a>
+        <a href="./journal/week-4.html"><strong>Week 4</strong><br>d3.geo.path and flaky tooltips</a>
+        <a href="./journal/week-5.html"><strong>Week 5</strong><br>d3.geo.path done; start C++</a>
+        <a href="./journal/week-6.html"><strong>Week 6</strong><br>Simplified getCommonChunk C++</a>
+        <a href="./journal/week-7.html"><strong>Week 7</strong><br>Midterm review checkpoint</a>
+        <a href="./journal/week-8.html"><strong>Week 8</strong><br>Yufan’s review on PR #342</a>
+        <a href="./journal/week-9.html"><strong>Week 9</strong><br>PR #342 tests passing</a>
+        <a href="./journal/week-10.html"><strong>Week 10</strong><br>Merge conflicts and PR status</a>
+        <a href="./journal/week-11.html"><strong>Week 11</strong><br>Waiting on C++ review</a>
+        <a href="./journal/week-12.html"><strong>Week 12</strong><br>C++ group scan and Codecov CI</a>
+    </div>
+
+    <p>Community bonding, the August final window, and end-term review are in the journal as well: <a href="./journal/community-bonding.html">bonding</a> · <a href="./journal/final-submission.html">final submission</a> · <a href="./journal/end-term.html">end term</a>.</p>
+
+    <h2>Contributions</h2>
+    <table class="contrib-table">
+      <thead>
+        <tr><th>PR</th><th>Issue</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="https://github.com/animint/animint2/pull/328">#328</a></td>
+          <td><a href="https://github.com/animint/animint2/issues/252">#252</a>: polygon holes via <code>subgroup</code> + <code>tooltipID()</code></td>
+          <td><span class="status-pill">Merged 14 Aug 2026</span></td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/animint/animint2/pull/342">#342</a></td>
+          <td><a href="https://github.com/animint/animint2/issues/258">#258</a>: <code>getCommonChunk()</code> C++ speedup</td>
+          <td><span class="status-pill">Open</span></td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/animint/animint2/pull/344">#344</a></td>
+          <td><a href="https://github.com/animint/animint2/issues/254">#254</a>: combined R+JS Codecov upload</td>
+          <td><span class="status-pill">Open</span></td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/animint/animint-blog/pull/2">animint-blog#2</a></td>
+          <td>How to draw polygon holes, and why hover/click need them</td>
+          <td><span class="status-pill">Open</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </main>
+
+  <script src="./js/site.js"></script>
+</body>
+</html>

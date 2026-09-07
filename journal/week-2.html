@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Making the stronger hole tests pass – Nishita / GSoC 2026</title>
+  <meta name="description" content="Making the stronger hole tests pass">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="week-page" data-page="journal-week-2" data-root="..">
+
+  <div class="week-nav-shell" data-week-nav></div>
+
+  <div class="page-shell">
+    <main class="content">
+
+      <header class="week-header">
+        <div class="week-badge">Week 2</div>
+        <h1 class="week-title">Making the stronger hole tests pass</h1>
+        <p class="week-date">2026-06-01 – 2026-06-07</p>
+      </header>
+
+      <h2 id="outcome">Outcome</h2>
+      <p>Week 2 stayed on <a href="https://github.com/animint/animint2/pull/328">PR #328</a>. The new tests look for a tooltip at every grid point and expect one only where <code>num=1</code>: the filled polygon, not the hole.</p>
+
+      <h2 id="context">Context</h2>
+      <p>On master the grid test failed at 17 of 147 points: holes still reported polygon opacity 0.7. That is the correct red state. My job was to make the SVG path actually punch those holes so hover and click miss the empty interior.</p>
+
+      <h2 id="what-i-did">What I did</h2>
+      <ul>
+        <li>Worked through remaining review comments on PR #328.</li>
+        <li>Traced why some hole midpoints still produced a tooltip.</li>
+        <li>Kept the renderer on GeoJSON rings plus evenodd fill, rather than ad-hoc path strings.</li>
+      </ul>
+
+      <h2 id="learnings">Learnings</h2>
+      <p>Interactive tests are only as strong as the coordinates they click. A regular grid over the bounding box catches holes that a handful of named points can miss.</p>
+
+      <h2 id="challenges">Challenges / notes</h2>
+      <p>Getting the ring winding and d3 path generation right took longer than the R compiler change. Small JS differences produced plots that looked acceptable but still failed tooltip assertions.</p>
+
+      <h2 id="next">Next week targets</h2>
+      <p>Land the next round of commits on #328 and respond to Toby’s code review on the path builder.</p>
+
+      <h2 id="evidence">Evidence and links</h2>
+      <ul class="evidence-list">
+        <li><a href="https://github.com/animint/animint2/pull/328">PR #328</a></li>
+        <li><a href="https://github.com/animint/animint2/issues/252">Issue #252</a></li>
+      </ul>
+
+    </main>
+    <aside class="page-toc" data-page-toc></aside>
+  </div>
+
+  <script src="../js/site.js"></script>
+</body>
+</html>

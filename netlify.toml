@@ -1,0 +1,34 @@
+[build]
+  publish = "."
+  command = "echo skip-build"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[redirects]]
+  from = "/journal"
+  to = "/journal/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/progress"
+  to = "/progress.html"
+  status = 200
+
+[[redirects]]
+  from = "/future"
+  to = "/future.html"
+  status = 200
+
+[[redirects]]
+  from = "/about"
+  to = "/about.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact.html"
+  status = 200

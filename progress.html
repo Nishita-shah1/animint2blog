@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Progress Report – Nishita / GSoC 2026</title>
+  <meta name="description" content="A scan-friendly timeline of Nishita Shah's GSoC 2026 Animint2 work.">
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body class="progress-page" data-page="progress" data-root=".">
+
+  <main class="content">
+
+    <div class="progress-report-heading"><h1>Progress Report</h1></div>
+    <div class="progress-intro-panel">
+      <h2>Timeline of contributions</h2>
+      <p>Fifteen entries from issue #322: community bonding, twelve coding weeks, the August final-submission window, and end-term review through 7 September 2026.</p>
+    </div>
+    <div class="progress-timeline" aria-label="GSoC 2026 project timeline">
+      
+    <article class="progress-timeline-entry">
+      <div class="progress-timeline-copy">
+        <p class="when">Community Bonding · May 1–24</p>
+        <h2>Opened polygon-hole work from the origin repo</h2>
+        <p class="progress-timeline-status">PR #326 OPEN · FORK CI FIXED</p>
+        <p>I opened PR #320 for issue #252, then moved the branch onto animint/animint2 as PR #326 after fork secrets blocked coverage jobs. First mentor meeting covered subgroup holes in geom_polygon.</p>
+        <p><a class="progress-journal-link" href="./journal/community-bonding.html">Read journal</a></p>
+      </div>
+      <div class="progress-timeline-node" aria-hidden="true">CB</div>
+    </article>
+
+    <article class="progress-timeline-entry">
+      <div class="progress-timeline-copy">
+        <p class="when">Week 1 · May 25–31</p>
+        <h2>Moved the hole renderer onto a failing test branch</h2>
+        <p class="progress-timeline-status">WORKFLOW PIVOT · PR #328</p>
+        <p>Toby asked for a strong failing test first. I ported the subgroup drawing code onto PR #328, cleaned irrelevant binary files from the diff, and committed to this test-first pattern for later PRs.</p>
+        <p><a class="progress-journal-link" href="./journal/week-1.html">Read journal</a></p>
+      </div>
+      <div class="progress-timeline-node" aria-hidden="true">W01</div>
+    </article>
+
+    <article class="progress-timeline-entry">
+      <div class="progress-timeline-copy">
+        <p class="when">Week 2 · June 1–7</p>
+        <h2>Debugged the new grid tooltip cases on #328</h2>
+        <p class="progress-timeline-status">REVIEW FIXES</p>
+        <p>Most of the week went into PR #328: correcting review comments and finding the renderer logic that makes the grid-based hole tests pass.</p>
+        <p><a class="progress-journal-link" href="./journal/week-2.html">Read journal</a></p>
+      </div>
+      <div class="progress-timeline-node" aria-hidden="true">W02</div>
+    </article>
+
+    <article class="progress-timeline-entry">
+      <div class="progress-timeline-copy">
+        <p class="when">Week 3 · June 8–14</p>
+        <h2>Pushed review fixes for polygon holes</h2>
+        <p class="progress-timeline-status">COMMITS ON #328</p>
+        <p>I committed renderer updates on PR #328 and then revised them again from Toby’s inline review, keeping the hole tests as the merge bar.</p>
+        <p><a class="progress-journal-link" href="./journal/week-3.html">Read journal</a></p>
+      </div>
+      <div class="progress-timeline-node" aria-hidden="true">W03</div>
+    </article>
+
+    <article class="progress-timeline-entry">
+      <div class="progress-timeline-copy">
+        <p class="when">Week 4 · June 15–21</p>
+        <h2>Chose d3.geo.path and slowed flaky tooltip checks</h2>
+        <p class="progress-timeline-status">RENDERER DECISION</p>
+        <p>I tried a planar SVG fallback to raise Codecov, then followed Toby’s guidance to ignore coverage and use d3.geo.path. A short Sys.sleep in the helper reduced tooltip timing flakes.</p>
+        <p><a class="progress-journal-link" href="./journal/week-4.html">Read journal</a></p>
+      </div>
+      <div class="progress-timeline-node" aria-hidden="true">W04</div>
+    </article>
+
+    <article class="progress-timeline-entry">
+      <div class="progress-timeline-copy">
+        <p class="when">Week 5 · June 22–28</p>
+        <h2>Closed the path question and opened C++ work</h2>
+        <p class="progress-timeline-status">JS DONE · #258 STARTED</p>
+        <p>PR #328 now uses d3.geo.path only. I started reading issue #258, sketched smoke tests for getCommonChunk(), and Toby asked me to share those tests in a PR rather than keeping them local.</p>
+        <p><a class="progress-journal-link" href="./journal/week-5.html">Read journal</a></p>
+      </div>
+      <div class="progress-timeline-node" aria-hidden="true">W05</div>
+    </article>
+
+    <article class="progress-timeline-entry">
+      <div class="progress-timeline-copy">
+        <p class="when">Week 6 · June 29–July 5</p>
+        <h2>Opened PR #342 with a smaller C++ compare</h2>
+        <p class="progress-timeline-status">PR #342 OPEN · 38 TESTS</p>
+        <p>Toby asked to shrink 300+ lines of C++. I opened PR #342 with ~154 lines, R grouping, C++ inner NA/matrix compare, 11 unit tests, and a vignette, then spent days stripping accidental CRAN artifacts.</p>
+        <p><a class="progress-journal-link" href="./journal/week-6.html">Read journal</a></p>
+      </div>
+      <div class="progress-timeline-node" aria-hidden="true">W06</div>
+    </article>
+
+    <article class="progress-timeline-entry">
+      <div class="progress-timeline-copy">
+        <p class="when">Week 7 · July 6–12</p>
+        <h2>Asked for merges, then had a slow week</h2>
+        <p class="progress-timeline-status">MIDTERM · LIMITED CODING</p>
+        <p>I pinged Toby that #328 looked merge-ready and that #342 stayed near 154 lines of C++ with a vignette. I was sick 7–12 July and could not work much.</p>
+        <p><a class="progress-journal-link" href="./journal/week-7.html">Read journal</a></p>
+      </div>
+      <div class="progress-timeline-node" aria-hidden="true">W07</div>
+    </article>
+
+    <article class="progress-timeline-entry">
+      <div class="progress-timeline-copy">
+        <p class="when">Week 8 · July 13–19</p>
+        <h2>Coded the first round of C++ review comments</h2>
+        <p class="progress-timeline-status">REVIEW IMPLEMENTATION</p>
+        <p>Yufan left review on PR #342. I read the comments, translated them into code, and kept the inner-compare design intact.</p>
+        <p><a class="progress-journal-link" href="./journal/week-8.html">Read journal</a></p>
+      </div>
+      <div class="progress-timeline-node" aria-hidden="true">W08</div>
+    </article>
+
+    <article class="progress-timeline-entry">
+      <div class="progress-timeline-copy">
+        <p class="when">Week 9 · July 20–26</p>
+        <h2>Finished review fixes; tests and atime looked clean</h2>
+        <p class="progress-timeline-status">TESTS PASSING</p>
+        <p>I corrected the remaining #342 review items. By 30 July the tests passed and the atime job did not show obvious timing issues versus master.</p>
+        <p><a class="progress-journal-link" href="./journal/week-9.html">Read journal</a></p>
+      </div>
+      <div class="progress-timeline-node" aria-hidden="true">W09</div>
+    </article>
+
+    <article class="progress-timeline-entry">
+      <div class="progress-timeline-copy">
+        <p class="when">Week 10 · July 27–August 2</p>
+        <h2>Unblocked #328 conflicts and summarized #342</h2>
+        <p class="progress-timeline-status">2 PRS ADVANCED</p>
+        <p>Toby asked me to fix conflicts and test failures on PR #328. I did that on 31 July, ignored atime/codecov there, and posted a full ready-for-review status on PR #342 on 2 August.</p>
+        <p><a class="progress-journal-link" href="./journal/week-10.html">Read journal</a></p>
+      </div>
+      <div class="progress-timeline-node" aria-hidden="true">W10</div>
+    </article>
+
+    <article class="progress-timeline-entry">
+      <div class="progress-timeline-copy">
+        <p class="when">Week 11 · August 3–9</p>
+        <h2>Held #342 and pinged mentors</h2>
+        <p class="progress-timeline-status">REVIEW WAIT</p>
+        <p>There was no major new commit. After the 2 August status I waited, then on 7 August asked Toby, Yufan, and Suhaani to review PR #342.</p>
+        <p><a class="progress-journal-link" href="./journal/week-11.html">Read journal</a></p>
+      </div>
+      <div class="progress-timeline-node" aria-hidden="true">W11</div>
+    </article>
+
+    <article class="progress-timeline-entry">
+      <div class="progress-timeline-copy">
+        <p class="when">Week 12 · August 10–16</p>
+        <h2>Hit the real getCommonChunk bottleneck; opened #344</h2>
+        <p class="progress-timeline-status">ATIME SPEEDUP · PR #344</p>
+        <p>Suhaani showed that Fast/Slow overlapped because grouping was still in R. I added detect_common_value_dt_cpp, fixed the atime workload, and opened PR #344 so R and JS coverage upload together after both jobs succeed.</p>
+        <p><a class="progress-journal-link" href="./journal/week-12.html">Read journal</a></p>
+      </div>
+      <div class="progress-timeline-node" aria-hidden="true">W12</div>
+    </article>
+
+    <article class="progress-timeline-entry">
+      <div class="progress-timeline-copy">
+        <p class="when">Final Submission · August 17–24</p>
+        <h2>PR #328 merged; #342 and #344 still in review</h2>
+        <p class="progress-timeline-status">1 MERGED · 2 OPEN</p>
+        <p>Toby merged PR #328 on 14 August. I explained why atime Fast still tracked Slow, retargeted the Fast SHA, and started the polygon-holes post for animint-blog after Toby asked for a user-facing write-up.</p>
+        <p><a class="progress-journal-link" href="./journal/final-submission.html">Read journal</a></p>
+      </div>
+      <div class="progress-timeline-node" aria-hidden="true">FS</div>
+    </article>
+
+    <article class="progress-timeline-entry">
+      <div class="progress-timeline-copy">
+        <p class="when">End term · August 24–September 7</p>
+        <h2>Documented holes and finished #344 review threads</h2>
+        <p class="progress-timeline-status">BLOG OPEN · #344 READY</p>
+        <p>I opened animint-blog#2, addressed Gaurav’s Codecov review, fixed blog knit errors, resolved #344 merge conflicts, and corrected a CRAN NEWS.md NOTE. #342 and #344 remain the end-term merge targets.</p>
+        <p><a class="progress-journal-link" href="./journal/end-term.html">Read journal</a></p>
+      </div>
+      <div class="progress-timeline-node" aria-hidden="true">ET</div>
+    </article>
+
+    </div>
+
+  </main>
+
+  <script src="./js/site.js"></script>
+</body>
+</html>

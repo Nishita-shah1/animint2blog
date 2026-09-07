@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Review cycles on the hole renderer – Nishita / GSoC 2026</title>
+  <meta name="description" content="Review cycles on the hole renderer">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="week-page" data-page="journal-week-3" data-root="..">
+
+  <div class="week-nav-shell" data-week-nav></div>
+
+  <div class="page-shell">
+    <main class="content">
+
+      <header class="week-header">
+        <div class="week-badge">Week 3</div>
+        <h1 class="week-title">Review cycles on the hole renderer</h1>
+        <p class="week-date">2026-06-08 – 2026-06-14</p>
+      </header>
+
+      <h2 id="outcome">Outcome</h2>
+      <p>The visible work this week was a pair of commits on <a href="https://github.com/animint/animint2/pull/328">PR #328</a>: first the hole-path changes, then a follow-up that matched Toby’s comments on the same diff.</p>
+
+      <h2 id="context">Context</h2>
+      <p>The PR still mixed a correct idea: holes as GeoJSON rings drawn with evenodd, with JS that was not yet the same as the reviewed code on #326. Review was really about matching that known-good renderer, not inventing a third path builder.</p>
+
+      <h2 id="what-i-did">What I did</h2>
+      <ul>
+        <li>6–9 June: committed the current renderer and tests.</li>
+        <li>14 June: updated the same files from inline review.</li>
+      </ul>
+
+      <h2 id="learnings">Learnings</h2>
+      <p>When a mentor says “use the JS from the other PR,” the fastest path is to copy that file, not rewrite the same algorithm in a slightly different style.</p>
+
+      <h2 id="next">Next week targets</h2>
+      <p>Settle the d3 path API, stop chasing Codecov on this PR, and get a locally correct visualization with all hole tests green.</p>
+
+      <h2 id="evidence">Evidence and links</h2>
+      <ul class="evidence-list">
+        <li><a href="https://github.com/animint/animint2/pull/328">PR #328</a></li>
+      </ul>
+
+    </main>
+    <aside class="page-toc" data-page-toc></aside>
+  </div>
+
+  <script src="../js/site.js"></script>
+</body>
+</html>

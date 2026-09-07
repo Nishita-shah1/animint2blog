@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Test-first polygon holes on PR #328 – Nishita / GSoC 2026</title>
+  <meta name="description" content="Test-first polygon holes on PR #328">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="week-page" data-page="journal-week-1" data-root="..">
+
+  <div class="week-nav-shell" data-week-nav></div>
+
+  <div class="page-shell">
+    <main class="content">
+
+      <header class="week-header">
+        <div class="week-badge">Week 1</div>
+        <h1 class="week-title">Test-first polygon holes on PR #328</h1>
+        <p class="week-date">2026-05-25 – 2026-05-31</p>
+      </header>
+
+      <h2 id="outcome">Outcome</h2>
+      <p>Coding week 1 was about changing how I ship the polygon-hole work. Instead of finishing PR #326 and adding tests later, I moved the renderer onto <a href="https://github.com/animint/animint2/pull/328">PR #328</a>, whose tests already failed on master because holes were filled in.</p>
+
+      <h2 id="context">Context</h2>
+      <p>Toby’s draft branch showed four tooltip failures on master: hovering a hole still found a polygon. With the #326 drawing code, those tests passed locally. The request was explicit: add the renderer to this branch and close #326. More generally, future PRs should start with a strong failing test, then the fix.</p>
+
+      <h2 id="what-i-did">What I did</h2>
+      <ul>
+        <li>Ported the subgroup rendering fix onto <code>test-polygon-hole</code>.</li>
+        <li>Removed accidental binary <code>*.r</code> files from the diff after a messy first port.</li>
+        <li>Learned to copy files from the other branch, then <code>git add</code>, commit, and push, instead of reconstructing the change by hand.</li>
+        <li>Cleaned unrelated files so the Files changed tab showed only the hole work.</li>
+      </ul>
+
+      <h2 id="learnings">Learnings</h2>
+      <p>A failing test that encodes the hole geometry is stronger than a passing suite that never hovers the empty region. Tooltip opacity at grid points is a precise way to ask “is this pixel inside the polygon?”</p>
+
+      <h2 id="challenges">Challenges / notes</h2>
+      <p>The first port polluted the PR with binaries and extra files. Review stalled until the diff was only the intended compiler, renderer, and tests.</p>
+
+      <h2 id="next">Next week targets</h2>
+      <p>Make the grid tooltip tests pass for islands, holes, and filled regions, and keep the JavaScript aligned with d3 conventions used in animint.</p>
+
+      <h2 id="evidence">Evidence and links</h2>
+      <ul class="evidence-list">
+        <li><a href="https://github.com/animint/animint2/pull/328">PR #328: tooltipID helper and hole tests</a></li>
+        <li><a href="https://github.com/animint/animint2/pull/326">PR #326: original renderer (later closed)</a></li>
+      </ul>
+
+    </main>
+    <aside class="page-toc" data-page-toc></aside>
+  </div>
+
+  <script src="../js/site.js"></script>
+</body>
+</html>

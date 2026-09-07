@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Polygon holes merged; C++ and Codecov still open – Nishita / GSoC 2026</title>
+  <meta name="description" content="Polygon holes merged; C++ and Codecov still open">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="week-page" data-page="journal-final-submission" data-root="..">
+
+  <div class="week-nav-shell" data-week-nav></div>
+
+  <div class="page-shell">
+    <main class="content">
+
+      <header class="week-header">
+        <div class="week-badge">Final submission</div>
+        <h1 class="week-title">Polygon holes merged; C++ and Codecov still open</h1>
+        <p class="week-date">2026-08-17 – 2026-08-24</p>
+      </header>
+
+      <h2 id="outcome">Outcome</h2>
+      <p>The first GSoC merge landed: <a href="https://github.com/animint/animint2/pull/328">PR #328</a> on 14 August, with polygon holes via <code>subgroup</code> and the <code>tooltipID()</code> test helper. End-term work stayed on #342 and #344.</p>
+
+      <h2 id="context">Context</h2>
+      <p>Toby asked why the atime Fast curve was almost as large as Slow. Slow is the old R <code>by=</code> path. Fast is the earlier C++ that only moved the inner compare. HEAD is <code>detect_common_value_dt_cpp</code>. Suhaani asked me to retarget <code>Fast=</code> in <code>.ci/atime/tests.R</code> so the labeled Fast curve matches HEAD, and said the rest looked good.</p>
+
+      <h2 id="what-i-did">What I did</h2>
+      <ul>
+        <li>Merged master into the C++ branch and posted the Fast/Slow/HEAD explanation.</li>
+        <li>Toby asked Gaurav to review #344.</li>
+        <li>On 19 August Toby asked for a blog post about the new hole feature on <a href="https://animint-blog.netlify.app/">animint-blog</a>.</li>
+      </ul>
+
+      <h2 id="learnings">Learnings</h2>
+      <p>atime labels are part of the review. If Fast is an old SHA, reviewers will think the optimization failed even when HEAD is fast.</p>
+
+      <div class="diagram" aria-label="atime curve meanings">
+        <div class="diagram-col is-risk">
+          <p><strong>Slow / Fast</strong></p>
+          <p>Old R grouping, or C++ that only compared values after R still grouped with <code>by=</code>. Curves overlap. No real win.</p>
+        </div>
+        <div class="diagram-arrow">→</div>
+        <div class="diagram-col is-safe">
+          <p><strong>HEAD</strong></p>
+          <p><code>detect_common_value_dt_cpp</code> scans columns and groups in C++. This is the curve that should be labeled Fast.</p>
+        </div>
+      </div>
+
+      <h2 id="next">Next week targets</h2>
+      <p>Open the animint-blog PR, address Gaurav’s #344 comments, and keep #342 merge-ready.</p>
+
+      <h2 id="evidence">Evidence and links</h2>
+      <ul class="evidence-list">
+        <li><a href="https://github.com/animint/animint2/pull/328">PR #328: merged 14 Aug 2026</a></li>
+        <li><a href="https://github.com/animint/animint2/pull/342">PR #342</a></li>
+        <li><a href="https://github.com/animint/animint2/pull/344">PR #344</a></li>
+      </ul>
+
+    </main>
+    <aside class="page-toc" data-page-toc></aside>
+  </div>
+
+  <script src="../js/site.js"></script>
+</body>
+</html>

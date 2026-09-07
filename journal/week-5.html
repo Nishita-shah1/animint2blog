@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Holes on d3.geo.path; first C++ experiments – Nishita / GSoC 2026</title>
+  <meta name="description" content="Holes on d3.geo.path; first C++ experiments">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="week-page" data-page="journal-week-5" data-root="..">
+
+  <div class="week-nav-shell" data-week-nav></div>
+
+  <div class="page-shell">
+    <main class="content">
+
+      <header class="week-header">
+        <div class="week-badge">Week 5</div>
+        <h1 class="week-title">Holes on d3.geo.path; first C++ experiments</h1>
+        <p class="week-date">2026-06-22 – 2026-06-28</p>
+      </header>
+
+      <h2 id="outcome">Outcome</h2>
+      <p>By 22 June the hole renderer used <code>d3.geo.path</code>, passed the tests, and matched the local visualization. I then switched attention to <a href="https://github.com/animint/animint2/issues/258">issue #258</a>.</p>
+
+      <h2 id="context">Context</h2>
+      <p>Toby still wanted the JS on #328 to match PR #326, including dropping a manual <code>"M" + points.join("L") + "Z"</code> path. I had misunderstood that request earlier. After the correction, only <code>d3.geo.path()</code> remained.</p>
+
+      <h2 id="what-i-did">What I did</h2>
+      <ul>
+        <li>Removed the custom planar path builder.</li>
+        <li>Set up the #258 codebase and wrote preliminary tests for common-chunk detection.</li>
+        <li>Explained to Toby that those “smoke tests” were just basic checks before a PR, then promised to open one.</li>
+      </ul>
+
+      <h2 id="learnings">Learnings</h2>
+      <p>Unshared tests do not count as progress on this project. The expected unit of work is a pull request, even when the C++ is still rough.</p>
+
+      <h2 id="next">Next week targets</h2>
+      <p>Open PR #342 with a simplified C++ inner compare, tests, and an explanation that can move into a vignette.</p>
+
+      <h2 id="evidence">Evidence and links</h2>
+      <ul class="evidence-list">
+        <li><a href="https://github.com/animint/animint2/pull/328">PR #328</a></li>
+        <li><a href="https://github.com/animint/animint2/issues/258">Issue #258</a></li>
+      </ul>
+
+    </main>
+    <aside class="page-toc" data-page-toc></aside>
+  </div>
+
+  <script src="../js/site.js"></script>
+</body>
+</html>
